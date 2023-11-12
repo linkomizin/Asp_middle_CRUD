@@ -14,5 +14,6 @@ namespace Domain.Entities
         public string Name { get; set; }
         public decimal Quautity { get; set; }
         public string Unit { get; set; }
+        public Order Order { get; set; }
     }
 }
