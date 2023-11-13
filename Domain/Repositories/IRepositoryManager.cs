@@ -5,6 +5,6 @@ namespace Domain.Repositories
     {
         IOrderRepository OrderRepository { get; }
         IOrderItemRepository OrderItemRepository { get; }
-        IProviderRepository ProviderRepositorey { get; }
+        IProviderRepository ProviderRepository { get; }
     }
 }
