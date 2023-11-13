@@ -1,6 +1,8 @@
-﻿namespace Domain.Repositories;
+﻿using Domain.Entities;
 
-public interface IOrderItemRepository
+namespace Domain.Repositories;
+
+public interface IOrderItemRepository : IBaseRepository<OrderItem>
 {
-    
+   
 }
