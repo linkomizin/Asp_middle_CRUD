@@ -17,7 +17,7 @@ namespace Persistence.Repositories
         }
         public Task<IEnumerable<Provider>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return Task.Run(() => _dbContext.Providers.AsEnumerable());
+            return Task.Run(() => _dbContext.Providers.ToList().AsEnumerable());
         }
 
 
