@@ -65,6 +65,7 @@ namespace Services
 
             order.Number = orderDto.Number;
             order.Date = orderDto.Date;
+            order.ProviderId = orderDto.ProviderId;
 
             await _repositoryManager.OrderRepository.SaveChangesAsync(cancellationToken);
 
