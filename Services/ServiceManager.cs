@@ -15,8 +15,6 @@ namespace Services
         private readonly Lazy<IOrderItemServices> _lazyOrderItemServices;
         private readonly Lazy<IProviderServices> _lazyProviderServices;
 
-
-
         public ServiceManager(IRepositoryManager repositoryManager)
         {
             _lazyOrderServices = new Lazy<IOrderServices>(() => new OrderService(repositoryManager));
