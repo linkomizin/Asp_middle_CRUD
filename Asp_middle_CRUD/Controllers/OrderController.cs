@@ -16,23 +16,24 @@ namespace Asp_middle_CRUD.Controllers
             _servicesManager = servicesManager;
         }
         // GET:  <OrderController>/List
-        [HttpGet("/list")]
+        [HttpGet("api/list")]
         public async Task<IActionResult> Get()
         {
             var list = await _servicesManager.OrderServices.GetAllAsync(new CancellationToken());
             return Ok(list);
         }
 
-        [HttpGet("/list")]
-        public async Task<IActionResult> GetByFilter(DateTime leftDate, DateTime rightDate)
+        [HttpGet("api/list")]
+        public async Task<IActionResult> GetByFilter(DateTime leftDate, DateTime rightDate, string numberOrder, int providerId)
         {
             return Ok();
         }
         // GET api/<OrderController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            var order =  await _servicesManager.OrderServices.GetByIdAsync(id, new CancellationToken());
+            return Ok(order);
         }
 
         // POST api/<OrderController>
