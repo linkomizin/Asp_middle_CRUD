@@ -25,6 +25,13 @@ namespace Persistence.Repositories
         public Task<Order> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var order = _dbContext.Orders.FirstOrDefault(o => o.Id == id);
+            if (order != null)
+            {
+                var lst = _dbContext.OrderItems
+                        .Where(el => el.OrderId == order.Id)
+                        .ToList();
+                order.OrderItems = lst;
+            }
             return Task.Run(() => order);
         }
 
