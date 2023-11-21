@@ -6,7 +6,7 @@ using Services.Abstractions;
 
 namespace Asp_middle_CRUD.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase
     {
@@ -16,14 +16,14 @@ namespace Asp_middle_CRUD.Controllers
             _servicesManager = servicesManager;
         }
         // GET:  <OrderController>/List
-        [HttpGet("api/list")]
+        [HttpGet("/list")]
         public async Task<IActionResult> Get()
         {
             var list = await _servicesManager.OrderServices.GetAllAsync(new CancellationToken());
             return Ok(list);
         }
 
-        [HttpGet("api/list")]
+        [HttpGet("/list")]
         public async Task<IActionResult> GetByFilter(DateTime leftDate, DateTime rightDate, string numberOrder, int providerId)
         {
             return Ok();
